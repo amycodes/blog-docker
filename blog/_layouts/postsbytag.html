@@ -1,0 +1,80 @@
+---
+layout: default
+---
+
+<!-- Page Header -->
+{% if page.background %}
+<header class="masthead" style="background-image: url('{{ page.background | prepend: site.baseurl | replace: '//', '/' }}')">
+  {% else %}
+  <header class="masthead">
+    {% endif %}
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="post-heading">
+            <h1>{{ page.title }}</h1>
+            {% if page.subtitle %}
+            <h2 class="subheading">{{ page.subtitle }}</h2>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container posts">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+
+          
+          <section class="about section">
+              <div class="section-inner shadow-sm rounded">
+                  {{ content }}
+                  <div class="clearfix">
+                    {% if page.tag %}
+                      {% for post in site.tags[page.tag] %}
+                        <article class="post-preview">
+                          {% if post.thumbnail %}
+                            <img class="thumbnail" src="{{ post.thumbnail | prepend: site.baseurl | replace: '//', '/' }}"/>
+                          {% endif %}
+                          <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}">
+                            <h2 class="post-title">{{ post.title }}</h2>
+                            {% if post.subtitle %}
+                              <h3 class="post-subtitle">{{ post.subtitle }}</h3>
+                            {% else %}
+                              <h3 class="post-subtitle">{{ post.excerpt | strip_html | truncatewords: 15 }}</h3>
+                            {% endif %}
+                          </a>
+                          <p class="post-meta">Posted on  {{ post.date | date: '%B %d, %Y' }}</p>
+                          </article>
+                        {% endfor %}
+                      {% else %}
+                        {% for post in site.posts %}
+                          <article class="post-preview">
+                          {% if post.thumbnail %}
+                            <img class="thumbnail" src="{{ post.thumbnail | prepend: site.baseurl | replace: '//', '/' }}"/>
+                            {% endif %}
+                          <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}">
+                            <h2 class="post-title">{{ post.title }}</h2>
+                            {% if post.subtitle %}
+                              <h3 class="post-subtitle">{{ post.subtitle }}</h3>
+                              {% else %}
+                                <h3 class="post-subtitle">{{ post.excerpt | strip_html | truncatewords: 15 }}</h3>
+                            {% endif %}
+                          </a>
+                            <p class="post-meta">Posted on {{ post.date | date: '%B %d, %Y' }}</p>
+                            </article>
+                          {% endfor %}
+                        {% endif %}
+                  </div>
+                </div><!--//section-inner-->                 
+        </section><!--//section-->
+        
+    
+    
+        </div>
+
+      </div>
+    </div>
+  </div>

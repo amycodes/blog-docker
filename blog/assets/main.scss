@@ -1,0 +1,58 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+
+@import "styles";
+
+.section-inner {
+    padding:1em;
+}
+
+.main section {
+    margin-bottom: 1em;
+}
+
+h2 {
+    font-weight: bold;
+}
+
+h3 {
+    font-size:1em;
+    font-weight: bold;
+}
+
+body {
+    background: lightsteelblue url(../img/lb_bg.png) no-repeat fixed center;
+    background-size: cover;
+}
+
+header.masthead, header.masthead .overlay, header.masthead .post-heading, header.masthead .page-heading, #mainNav, #mainNav a.navbar-brand, #mainNav .navbar-nav > li.nav-item > a {
+    color: black;
+    background-color: white;
+}
+
+.section-inner {
+    background-color: white;
+}
+
+header.masthead .page-heading, header.masthead .post-heading {
+    padding: 75px 0 25px;
+}
+
+.main article img.thumbnail {
+    width: 100%; 
+}
+
+.posts article, .main article {
+    border-bottom: thin solid gray;
+    margin-bottom: 1.5em;
+}
+
+@media only screen and (min-width: 768px) {
+    .main article img.thumbnail, .posts article img.thumbnail {
+        float: left;
+        width: 33%;
+        margin: 0.5em 1em 1em 0;
+    }
+
+}
